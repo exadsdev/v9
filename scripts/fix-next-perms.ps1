@@ -1,10 +1,16 @@
-# Run this script AS ADMINISTRATOR in PowerShell to take ownership of .next and remove it
-# Usage: Right-click PowerShell -> Run as Administrator, then:
-#   Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process; .\scripts\fix-next-perms.ps1
+<#
+Run this script AS ADMINISTRATOR in PowerShell to take ownership of .next and remove it.
 
-$project = "C:\Users\admin\Desktop\pages\next\phone-next15"
+Usage: Right-click PowerShell -> Run as Administrator, then:
+    Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process; .\scripts\fix-next-perms.ps1
+
+This script auto-detects the project root as the parent directory of /scripts.
+#>
+
+$project = Resolve-Path (Join-Path $PSScriptRoot "..")
 $next = Join-Path $project ".next"
 
+Write-Host "Project root: $project"
 Write-Host "Taking ownership of $next (recursive)..."
 try {
     takeown /F "$next" /R /D Y | Write-Host

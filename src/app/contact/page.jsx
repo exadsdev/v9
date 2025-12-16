@@ -74,8 +74,7 @@ export default function ContactPage() {
                   </p>
                 )}
                 <p className="small text-muted mt-2">
-                  * สามารถเปลี่ยนลิงก์แผนที่ให้ตรงกับตำแหน่งร้านจริงได้โดยแก้ในไฟล์
-                  .env.local
+                
                 </p>
               </div>
             </div>
