@@ -1,46 +1,28 @@
 'use client';
 
-import { useEffect, useState } from 'react';
 import Script from 'next/script';
 
-const googleAdsId = process.env.NEXT_PUBLIC_GOOGLE_ADS_ID;
-const CONSENT_KEY = 'pgmobile_cookie_consent';
+const GOOGLE_ADS_ID = process.env.NEXT_PUBLIC_GOOGLE_ADS_ID || '';
 
 export default function GoogleAdsTag() {
-  const [hasConsent, setHasConsent] = useState(false);
-
-  useEffect(() => {
-    try {
-      const stored = window.localStorage.getItem(CONSENT_KEY);
-      setHasConsent(stored === 'accepted');
-    } catch {
-      setHasConsent(false);
-    }
-  }, []);
-
-  if (!googleAdsId) return null;
-  if (!hasConsent) return null;
+  // ถ้าไม่ได้ตั้งค่า ID ก็ไม่โหลดอะไรเลย
+  if (!GOOGLE_ADS_ID || !GOOGLE_ADS_ID.startsWith('AW-')) return null;
 
   return (
     <>
       <Script
         id="google-ads-gtag-src"
-        src={`https://www.googletagmanager.com/gtag/js?id=${googleAdsId}`}
+        src={`https://www.googletagmanager.com/gtag/js?id=${GOOGLE_ADS_ID}`}
         strategy="afterInteractive"
       />
-
-      <Script
-        id="google-ads-gtag-init"
-        strategy="afterInteractive"
-        dangerouslySetInnerHTML={{
-          __html: `
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', '${googleAdsId}');
-          `
-        }}
-      />
+      <Script id="google-ads-gtag-init" strategy="afterInteractive">
+        {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', '${GOOGLE_ADS_ID}');
+        `}
+      </Script>
     </>
   );
 }
