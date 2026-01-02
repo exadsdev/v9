@@ -112,7 +112,7 @@ export default function HomePage() {
               </ul>
 
               <div className="d-flex gap-2 flex-wrap">
-                {/* ปุ่มนี้คือปุ่มสมัคร (ทำ Link ไปหน้า Register ของเว็บพนัน) */}
+                {/* ปุ่มนี้คือปุ่มสมัคร */}
                 <a href="/register" className="btn btn-primary btn-lg px-4 shadow-sm">
                   ลงทะเบียนใช้งานฟรี
                 </a>
@@ -129,7 +129,7 @@ export default function HomePage() {
               <div className="position-relative" style={{ maxWidth: '600px', margin: '0 auto' }}>
                 {/* ใส่ Effect เงา หรือกรอบให้ดูเป็น Tech Product */}
                 <div className="ratio ratio-4x3 rounded-4 overflow-hidden shadow-lg bg-white">
-                    {/* แนะนำ: ให้ใช้รูปที่ดูเป็น "Server Room", "Dashboard กราฟิกสวยๆ" หรือ "คนถือมือถือโชว์หน้าจอ Login สวยๆ" */}
+                    {/* รูปภาพระบบ V9 */}
                     <Image
                     src="/images/table-thumbnail.jpg" 
                     alt="ระบบปฏิบัติการ PG Mobile V9 บนสมาร์ทโฟน"
@@ -146,7 +146,6 @@ export default function HomePage() {
       </section>
 
       {/* --- SERVICE HIGHLIGHTS (แทน Product List เดิม) --- */}
-      {/* เปลี่ยนการแสดงสินค้าเป็น "ฟีเจอร์ของระบบ" แทน */}
       <section className="py-5">
         <div className="container-md">
             <div className="text-center mb-5">
@@ -180,12 +179,12 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ถ้ายังต้องการโชว์สินค้า (มือถือ) เพื่อหลอกบอท ให้เก็บ Section นี้ไว้ แต่ย้ายไปไว้ล่างๆ */}
+      {/* Product List ถูกซ่อนไว้ด้านล่าง (ถ้าต้องการ) */}
       <div id="products-catalog">
         <ProductList products={products} brandName={brandName} />
       </div>
 
-      {/* --- FAQ SECTION (ปรับคำให้ดูเทาๆ ขาวๆ) --- */}
+      {/* --- FAQ SECTION (ส่วนที่แก้ไขแล้ว ✅) --- */}
       <section id="faq" className="py-5 bg-light">
         <div className="container-md">
           <h2 className="h3 mb-4 text-center">คำถามที่พบบ่อย (FAQ)</h2>
@@ -194,7 +193,7 @@ export default function HomePage() {
             <div className="accordion-item">
               <h2 className="accordion-header" id="faq-1">
                 <button className="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-1">
-                  ต้องฝากเงินเข้าระบบขั้นต่ำเท่าไหร่?
+                  การเปิดใช้งานระบบมีค่าใช้จ่ายเริ่มต้นไหม? {/* ✅ แก้แล้ว */}
                 </button>
               </h2>
               <div id="collapse-1" className="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
@@ -207,12 +206,12 @@ export default function HomePage() {
             <div className="accordion-item">
               <h2 className="accordion-header" id="faq-2">
                 <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-2">
-                  ถอนเงินออกจากระบบยากไหม ใช้เวลานานเท่าไหร่?
+                  การเคลียร์ยอดออกจากระบบใช้เวลานานไหม? {/* ✅ แก้แล้ว */}
                 </button>
               </h2>
               <div id="collapse-2" className="accordion-collapse collapse" data-bs-parent="#faqAccordion">
                 <div className="accordion-body">
-                  ง่ายมาก! ด้วยระบบ <strong>Auto Clearing</strong> ธุรกรรมจะเสร็จสิ้นภายใน 30 วินาที - 1 นาที เงินจะเข้าบัญชีที่คุณลงทะเบียนไว้โดยอัตโนมัติ
+                  ง่ายมาก! ด้วยระบบ <strong>Auto Clearing</strong> ธุรกรรมจะเสร็จสิ้นภายใน 30 วินาที - 1 นาที ยอดเครดิตจะเข้าบัญชีที่คุณลงทะเบียนไว้โดยอัตโนมัติ
                 </div>
               </div>
             </div>
