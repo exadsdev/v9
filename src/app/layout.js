@@ -1,7 +1,7 @@
 // src/app/layout.js
 import './globals.css';
 import './app.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import "bootstrap/dist/css/bootstrap.min.css";
 import { Prompt } from 'next/font/google';
 
 const prompt = Prompt({
@@ -244,6 +244,8 @@ export default function RootLayout({ children }) {
           <CookieConsent />
         </CartProvider>
       </body>
+
+      <script async src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"   /> 
     </html>
   );
 }
