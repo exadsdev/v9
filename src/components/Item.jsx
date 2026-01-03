@@ -18,7 +18,7 @@ export default function Item() {
           <Link href={`${urls}/cart.php?id=${id}&ref=mobile`}>
             <div className="img-wrap">
               <Image
-                src={`${urls}/img/phone/${id}.jpg?v=${v}`}
+                src={`${urls}/img/phone/${id}.gif?v=${v}`}
                 alt={`โทรศัพท์มือถือ PG รุ่น V9 ${id}`}
                 fill
                 sizes="33vw"
